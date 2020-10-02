@@ -6,7 +6,7 @@ on:
 jobs:
   signl4:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: SIGNL4
     steps:
     - name: SIGNL4 Alerting
       uses: signl4/signl4-action-alert@v1
