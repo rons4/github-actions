@@ -5,18 +5,21 @@ on:
     - cron:  '*/15 * * * *'
 jobs:
   signl4:
-  - name: SIGNL4 Alerting
-    uses: signl4/signl4-action-alert@v1
-    id: signl4
-    with:
-      team-secret: ${{ secrets.SIGNL4_TEAM_SECRET }}
-      title: 'SIGNL4 Alert'
-      message: 'Alert from GitHub Actions.'
-      X-S4-Service: 'Service'
-      X-S4-Location: '52.3984235,13.0544149'
-      X-S4-AlertingScenario: 'single_ack'
-      X-S4-Filtering: false
-      X-S4-ExternalID: 'A1'
-      X-S4-Status: 'new'
-  - name: Get the output time
-    run: echo "SIGNL4 Event ID ${{ steps.signl4.outputs.eventId }}"
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: SIGNL4 Alerting
+      uses: signl4/signl4-action-alert@v1
+      id: signl4
+      with:
+        team-secret: ${{ secrets.SIGNL4_TEAM_SECRET }}
+        title: 'SIGNL4 Alert'
+        message: 'Alert from GitHub Actions.'
+        X-S4-Service: 'Service'
+        X-S4-Location: '52.3984235,13.0544149'
+        X-S4-AlertingScenario: 'single_ack'
+        X-S4-Filtering: false
+        X-S4-ExternalID: 'A1'
+        X-S4-Status: 'new'
+    - name: Get the output time
+      run: echo "SIGNL4 Event ID ${{ steps.signl4.outputs.eventId }}"
