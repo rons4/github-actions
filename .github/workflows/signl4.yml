@@ -6,9 +6,9 @@ on:
 jobs:
   signl4:
     runs-on: ubuntu-latest
-    name: SIGNL4
+    name: SIGNL4 Alerting
     steps:
-    - name: SIGNL4 Alerting
+    - name: SIGNL4
       uses: signl4/signl4-action-alert@v1
       id: signl4
       with:
