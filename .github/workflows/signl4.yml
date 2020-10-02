@@ -1,3 +1,4 @@
+name: Send SIGNL4 Alert
 on:
   repository_dispatch:
   workflow_dispatch:
