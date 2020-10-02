@@ -4,7 +4,7 @@ on:
   schedule:
     - cron:  '*/15 * * * *'
 jobs:
-  telegram:
+  signl4:
   - name: SIGNL4 Alerting
     uses: signl4/signl4-action-alert@v1
     id: signl4
