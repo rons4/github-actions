@@ -7,13 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     name: SIGNL4 Alerting
     steps:
+    - name: Request
+      uses: satak/webrequest-action@master
+      with:
+        url: https://api.troposphere.io/forecast/52.5200533,13.2966172?token=a1
+        method: GET
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
       id: signl4
       with:
         team-secret: ${{ secrets.SIGNL4_TEAM_SECRET }}
         title: 'SIGNL4 Alert'
-        message: 'Alert from GitHub Actions.'
+        message: '${{ steps.webhook.outputs }}'
         X-S4-Service: 'Service'
         X-S4-Location: '52.3984235,13.0544149'
         X-S4-AlertingScenario: 'single_ack'
