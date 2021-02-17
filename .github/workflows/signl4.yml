@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: SIGNL4 Alerting
     steps:
-    - name: Request
+    - name: webhook
       uses: satak/webrequest-action@master
       with:
         url: https://api.troposphere.io/forecast/52.5200533,13.2966172?token=a1
