@@ -1,9 +1,9 @@
 name: Send SIGNL4 Alert
 on:
-  repository_dispatch:
-  workflow_dispatch:
-#  schedule:
-#    - cron:  '*/5 * * * *'
+#  repository_dispatch:
+#  workflow_dispatch:
+  schedule:
+    - cron:  '*/5 * * * *'
 jobs:
   signl4:
     runs-on: ubuntu-latest
