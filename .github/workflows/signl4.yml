@@ -18,7 +18,8 @@ jobs:
     - name: SetVar
       id: setvar
       run: |
-        Write-Host "Output: ${{ steps.webhook.outputs.output.time }}"
+        $output = '${{ steps.webhook.outputs.output }}' | ConvertFrom-Json
+        echo "Output: $($output.time)"
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
       id: signl4
