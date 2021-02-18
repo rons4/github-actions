@@ -19,7 +19,7 @@ jobs:
       uses: gr2m/get-json-paths-action@v1.x
       with:
         json: ${{ steps.request.outputs.output }}
-        time: time
+        time: "time"
     - run: "echo latest release: ${{ steps.result.outputs.time }}"
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
