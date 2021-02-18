@@ -19,10 +19,8 @@ jobs:
       uses: gr2m/get-json-paths-action@v1.x
       with:
         json: ${{ steps.request.outputs.output }}
-        name: "name"
-        tag_name: "tag_name"
-        created_by: "author.login"
-    - run: "echo latest release: ${{ steps.result.outputs.output.time }}"
+        time: time
+    - run: "echo latest release: ${{ steps.result.outputs.time }}"
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
       id: signl4
