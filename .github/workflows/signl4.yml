@@ -16,7 +16,7 @@ jobs:
         url: https://api.troposphere.io/forecast/52.5200533,13.2966172?token=${{ secrets.TROPOSPHERE_API_KEY }}
         method: GET
     - name: Show Response
-      run: echo  ${{ fromJson(steps.webhook.outputs.output).time }}
+      run: echo  "${{ fromJson(steps.webhook.outputs.output).time }}"
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
       id: signl4
