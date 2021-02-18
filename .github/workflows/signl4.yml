@@ -18,14 +18,7 @@ jobs:
     - name: SetVar
       id: setvar
       run: |
-        $output = '${{ steps.webhook.outputs.output }}' | ConvertFrom-Json
-        Write-Host "Time from output $($output.time) statusCode $($output.statusCode) data $($output.data)"
-    - name: Test
-      uses: satak/webrequest-action@master
-      with:
-        url: https://b58aee12b873eae71b5db8b4fdc77d78.m.pipedream.net
-        method: POST
-        payload: $($output.data)
+        Write-Host "Output: ${{ steps.webhook.outputs.output }}"
     - name: SIGNL4
       uses: signl4/signl4-action-alert@v1.1
       id: signl4
