@@ -1,0 +1,19 @@
+name: Heartbeat
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron:  '*/15 * * * *'
+jobs:
+  signl4:
+    runs-on: ubuntu-latest
+    name: Heartbeat
+    steps:
+    - name: webhook
+      uses: satak/webrequest-action@master
+      id: webhook
+      with:
+        url: https://api.troposphere.io/forecast/52.5200533,13.2966172?token=${{ secrets.TROPOSPHERE_API_KEY }}
+        method: GET
+    - name: Show Response
+      run: echo  "${{ fromJson(steps.webhook.outputs.output).data.data }}"
