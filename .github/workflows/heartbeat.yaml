@@ -3,7 +3,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  '*/60 * * * *'
 jobs:
   signl4:
     runs-on: ubuntu-latest
