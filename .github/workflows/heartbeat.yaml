@@ -13,7 +13,7 @@ jobs:
       uses: satak/webrequest-action@master
       id: webhook
       with:
-        url: https://...
+        url: ${{ secrets.SIGNL4_HEARTBEAT_URL }}
         method: POST
         payload: '{"name": "test"}'
     - name: Show Response
