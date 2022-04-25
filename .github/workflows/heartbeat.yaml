@@ -2,8 +2,8 @@ name: Heartbeat
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
-    - cron:  '*/60 * * * *'
+#  schedule:
+#    - cron:  '*/60 * * * *'
 jobs:
   signl4:
     runs-on: ubuntu-latest
