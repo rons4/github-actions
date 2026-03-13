@@ -1,0 +1,17 @@
+name: Test Action
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [test-event]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print event info
+        run: |
+          echo "Workflow triggered!"
+          echo "Event: ${{ github.event_name }}"
+          echo "Payload:"
+          echo '${{ toJson(github.event) }}'
